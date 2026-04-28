@@ -19,7 +19,7 @@ LABEL Description="Next.js and tRPC v11 task environment with Node.js v24 instal
 
 # Create a test image for the verification step
 RUN mkdir -p /home/user && \
-    curl -o /home/user/test-image.png "https://raw.githubusercontent.com/trpc/trpc/main/www/public/img/logo-light.svg" || \
+    curl -o /home/user/test-image.png "https://raw.githubusercontent.com/TabbyML/pochi/82a2d5c57a52f4b55c816370300279cdf486efeb/packages/docs/public/logo192.png" || \
     echo "test image content" > /home/user/test-image.png
 
 # Container contents:
