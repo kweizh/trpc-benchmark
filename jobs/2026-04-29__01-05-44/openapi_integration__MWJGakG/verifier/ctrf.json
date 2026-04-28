@@ -1,0 +1,65 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1777396797.5091617,
+            "stop": 1777396797.5252001
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_openapi_file_exists",
+                "status": "passed",
+                "duration": 0.0004977469798177481,
+                "start": 1777396797.5211878,
+                "stop": 1777396797.5219007,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_openapi_valid_json",
+                "status": "passed",
+                "duration": 0.0005225150380283594,
+                "start": 1777396797.5221,
+                "stop": 1777396797.522763,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_openapi_version",
+                "status": "passed",
+                "duration": 0.00045568891800940037,
+                "start": 1777396797.522942,
+                "stop": 1777396797.5235376,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_openapi_info",
+                "status": "passed",
+                "duration": 0.0004491320578381419,
+                "start": 1777396797.5237093,
+                "stop": 1777396797.5242932,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_openapi_paths",
+                "status": "passed",
+                "duration": 0.00044208206236362457,
+                "start": 1777396797.5244677,
+                "stop": 1777396797.5250335,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

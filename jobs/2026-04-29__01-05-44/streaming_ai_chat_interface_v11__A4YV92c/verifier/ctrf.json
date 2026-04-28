@@ -1,0 +1,59 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 4,
+            "passed": 3,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1777396244.3890858,
+            "stop": 1777396510.0218878
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_dependencies_installed",
+                "status": "passed",
+                "duration": 0.000565525027923286,
+                "start": 1777396244.4027138,
+                "stop": 1777396244.403478,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_http_batch_stream_link_used",
+                "status": "passed",
+                "duration": 3.7980148548958823,
+                "start": 1777396244.4036663,
+                "stop": 1777396248.201889,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_async_generator_used",
+                "status": "passed",
+                "duration": 1.1173722530947998,
+                "start": 1777396248.2021515,
+                "stop": 1777396249.3197165,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_project_builds",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 260.6864809059771,
+                "start": 1777396249.3199449,
+                "stop": 1777396510.02167,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_project_builds():\n        result = subprocess.run([\"npm\", \"run\", \"build\"], cwd=PROJECT_DIR, capture_output=True, text=True)\n>       assert result.returncode == 0, f\"Project failed to build. Output:\\n{result.stderr}\\n{result.stdout}\"\nE       AssertionError: Project failed to build. Output:\nE         request to https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2 failed, reason: Client network socket disconnected before secure TLS connection was established\nE         \nE         Retrying 1/3...\nE         Failed to compile.\nE         \nE         ./app/page.tsx:10:42\nE         Type error: Property 'subscribe' does not exist on type '{ useSubscription: ProcedureUseSubscription<{ input: void; output: AsyncIterable<\"Starting...\" | \"Processing...\" | \"Done!\", never, any>; transformer: false; errorShape: DefaultErrorShape; }>; }'.\nE         \nE         \u001b[0m \u001b[90m  8 |\u001b[39m\u001b[0m\nE         \u001b[0m \u001b[90m  9 |\u001b[39m   useEffect(() \u001b[33m=>\u001b[39m {\u001b[0m\nE         \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m     \u001b[36mconst\u001b[39m subscription \u001b[33m=\u001b[39m trpc\u001b[33m.\u001b[39mchatStream\u001b[33m.\u001b[39msubscribe(undefined\u001b[33m,\u001b[39m {\u001b[0m\nE         \u001b[0m \u001b[90m    |\u001b[39m                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\nE         \u001b[0m \u001b[90m 11 |\u001b[39m       onData(data) {\u001b[0m\nE         \u001b[0m \u001b[90m 12 |\u001b[39m         setMessages((prev) \u001b[33m=>\u001b[39m [\u001b[33m...\u001b[39mprev\u001b[33m,\u001b[39m data])\u001b[33m;\u001b[39m\u001b[0m\nE         \u001b[0m \u001b[90m 13 |\u001b[39m       }\u001b[33m,\u001b[39m\u001b[0m\nE         \nE         \nE         > project@0.1.0 build\nE         > next build\nE         \nE           \u25b2 Next.js 14.2.3\nE         \nE            Creating an optimized production build ...\nE          \u2713 Compiled successfully\nE            Linting and checking validity of types ...\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['npm', 'run', 'build'], returncode=1, stdout='\\n> project@0.1.0 build\\n> next build\\n\\n  \u25b2 Next...prev\\x1b[33m,\\x1b[39m data])\\x1b[33m;\\x1b[39m\\x1b[0m\\n\\x1b[0m \\x1b[90m 13 |\\x1b[39m       }\\x1b[33m,\\x1b[39m\\x1b[0m\\n').returncode\n\ntests/test_final_state.py:31: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

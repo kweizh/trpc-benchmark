@@ -1,0 +1,61 @@
+downloading uv 0.9.7 x86_64-unknown-linux-gnu
+no checksums to verify
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
+Downloading pygments (1.2MiB)
+ Downloading pygments
+Installed 7 packages in 20ms
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 5 items
+
+tests/test_final_state.py .FFF.                                          [100%]
+
+=================================== FAILURES ===================================
+______________________ test_server_and_client_files_exist ______________________
+
+    def test_server_and_client_files_exist():
+>       assert os.path.isfile(os.path.join(PROJECT_DIR, "server.ts")), "server.ts does not exist."
+E       AssertionError: server.ts does not exist.
+E       assert False
+E        +  where False = <function isfile at 0x742c77ac0220>('/home/user/project/server.ts')
+E        +    where <function isfile at 0x742c77ac0220> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+E        +    and   '/home/user/project/server.ts' = <function join at 0x742c77ac0c20>('/home/user/project', 'server.ts')
+E        +      where <function join at 0x742c77ac0c20> = <module 'posixpath' (frozen)>.join
+E        +        where <module 'posixpath' (frozen)> = os.path
+
+tests/test_final_state.py:16: AssertionError
+___________________ test_client_uses_http_subscription_link ____________________
+
+    def test_client_uses_http_subscription_link():
+>       with open(os.path.join(PROJECT_DIR, "client.ts")) as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/project/client.ts'
+
+tests/test_final_state.py:20: FileNotFoundError
+_______________________ test_server_uses_async_generator _______________________
+
+    def test_server_uses_async_generator():
+>       with open(os.path.join(PROJECT_DIR, "server.ts")) as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/project/server.ts'
+
+tests/test_final_state.py:25: FileNotFoundError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_dependencies_installed
+PASSED tests/test_final_state.py::test_subscription_output_log
+FAILED tests/test_final_state.py::test_server_and_client_files_exist - Assert...
+FAILED tests/test_final_state.py::test_client_uses_http_subscription_link - F...
+FAILED tests/test_final_state.py::test_server_uses_async_generator - FileNotF...
+========================= 3 failed, 2 passed in 0.04s ==========================

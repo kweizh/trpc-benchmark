@@ -1,0 +1,74 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 2,
+            "failed": 3,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1777397802.6275513,
+            "stop": 1777397802.6686625
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_dependencies_installed",
+                "status": "passed",
+                "duration": 0.0008960609557107091,
+                "start": 1777397802.643157,
+                "stop": 1777397802.6444592,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_server_and_client_files_exist",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0008555578533560038,
+                "start": 1777397802.6447809,
+                "stop": 1777397802.6616096,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_server_and_client_files_exist():\n>       assert os.path.isfile(os.path.join(PROJECT_DIR, \"server.ts\")), \"server.ts does not exist.\"\nE       AssertionError: server.ts does not exist.\nE       assert False\nE        +  where False = <function isfile at 0x742c77ac0220>('/home/user/project/server.ts')\nE        +    where <function isfile at 0x742c77ac0220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\nE        +    and   '/home/user/project/server.ts' = <function join at 0x742c77ac0c20>('/home/user/project', 'server.ts')\nE        +      where <function join at 0x742c77ac0c20> = <module 'posixpath' (frozen)>.join\nE        +        where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:16: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_client_uses_http_subscription_link",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0006250109290704131,
+                "start": 1777397802.6618905,
+                "stop": 1777397802.6646867,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_client_uses_http_subscription_link():\n>       with open(os.path.join(PROJECT_DIR, \"client.ts\")) as f:\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/project/client.ts'\n\ntests/test_final_state.py:20: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_server_uses_async_generator",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0005870639579370618,
+                "start": 1777397802.6649601,
+                "stop": 1777397802.6674943,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_server_uses_async_generator():\n>       with open(os.path.join(PROJECT_DIR, \"server.ts\")) as f:\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/project/server.ts'\n\ntests/test_final_state.py:25: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_final_state.py::test_subscription_output_log",
+                "status": "passed",
+                "duration": 0.0005588430212810636,
+                "start": 1777397802.6677258,
+                "stop": 1777397802.668476,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}
