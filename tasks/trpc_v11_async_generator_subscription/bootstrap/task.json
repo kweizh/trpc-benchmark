@@ -1,0 +1,5 @@
+{
+  "task_name": "trpc_v11_async_generator_subscription",
+  "task_description": "# tRPC v11 Async Generator Subscription\n\n## Background\nIn tRPC v11, subscriptions can now use native async generators, and the client can consume them using Server-Sent Events (SSE) via the new `httpSubscriptionLink`. This removes the strict requirement for WebSockets.\n\n## Requirements\n- Implement a tRPC v11 standalone server.\n- Create a `countdown` subscription procedure using an `async function* ()`.\n- The procedure should yield numbers from 3 down to 1, with a 100ms delay between each yield.\n- Create a client script that uses `httpSubscriptionLink` to connect to the server and collect the yielded values.\n\n## Constraints\n- Project path: `/home/user/project`\n- Log file: `/home/user/project/output.log`",
+  "truth": "# Verification Plan\n\n## Setup\n1. `cd /home/user/project`\n2. `npm install`\n3. `node server.ts &` (wait for server to start)\n\n## Test Cases\n1. **Subscription Output**: Run `node client.ts > output.log`. Expected: The log file should contain the numbers 3, 2, and 1."
+}

@@ -1,0 +1,25 @@
+# Testing tRPC Routers with createCallerFactory
+
+## Background
+In tRPC v11, the old `router.createCaller()` method has been replaced by `createCallerFactory`. This factory is used to create a caller for executing procedures on the server, which is especially useful for integration testing or Server-Side Rendering (SSR).
+
+## Requirements
+- Initialize a Node.js project in `/home/user/project`.
+- Install `@trpc/server@next` and `zod`.
+- Create a file `router.ts` that exports an `appRouter` with a `greet` query procedure. The procedure should accept a `z.object({ name: z.string() })` and return a greeting string like `"Hello, [name]!"`.
+- Create a file `test.ts` that imports the `appRouter`, uses `createCallerFactory` to create a caller, and calls the `greet` procedure with the input `{ name: "World" }`.
+- The script `test.ts` should output the result to the console.
+
+## Implementation Guide
+1. Run `npm init -y` in `/home/user/project`.
+2. Install the required dependencies: `npm install @trpc/server@next zod` and development dependencies: `npm install -D typescript tsx @types/node`.
+3. Create `router.ts` with the tRPC initialization, router definition, and the `greet` procedure.
+4. Create `test.ts` that initializes the caller using `t.createCallerFactory(appRouter)`, invokes the caller, and logs the result.
+
+## Constraints
+- Project path: `/home/user/project`
+- Use `createCallerFactory` from the initialized tRPC object.
+- The log output of `test.ts` must be verifiable.
+
+## Integrations
+- None
