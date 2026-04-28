@@ -1,0 +1,66 @@
+downloading uv 0.9.7 x86_64-unknown-linux-gnu
+no checksums to verify
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
+Downloading pygments (1.2MiB)
+ Downloading pygments
+Installed 7 packages in 27ms
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 3 items
+
+../../../tests/test_final_state.py ..F                                   [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_exported_types ______________________________
+
+    def test_exported_types():
+        """Verify that the required types are exported from client.ts using a TypeScript test file."""
+        test_ts_path = os.path.join(PROJECT_DIR, "verify_types.ts")
+        with open(test_ts_path, "w") as f:
+            f.write("""
+    import { RouterInput, RouterOutput, User, CreateUserInput } from './client';
+    
+    // These assignments will fail to compile if the types are incorrect
+    const input: RouterInput = { user: { createUser: { name: 'test' } } };
+    const output: RouterOutput = { user: { getUser: { id: 1, name: 'test' }, createUser: { id: 2, name: 'test' } } };
+    
+    const user: User = { id: 1, name: 'test' };
+    const createInput: CreateUserInput = { name: 'test' };
+    
+    // To prevent unused variable errors if strict is on
+    console.log(input, output, user, createInput);
+    """)
+    
+        # Compile the test file to check types
+        result = subprocess.run(
+            ["npx", "tsc", "--noEmit"],
+            cwd=PROJECT_DIR,
+            capture_output=True,
+            text=True
+        )
+    
+>       assert result.returncode == 0, f"Type verification failed. The exported types in client.ts are missing or incorrect:\n{result.stdout}\n{result.stderr}"
+E       AssertionError: Type verification failed. The exported types in client.ts are missing or incorrect:
+E         verify_types.ts(5,30): error TS2741: Property 'getUser' is missing in type '{ createUser: { name: string; }; }' but required in type 'GetInferenceHelpers<"input", { ctx: object; meta: object; errorShape: DefaultErrorShape; transformer: false; }, DecorateCreateRouterOptions<{ getUser: QueryProcedure<{ input: void; output: { id: number; name: string; }; meta: object; }>; createUser: MutationProcedure<...>; }>>'.
+E         
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['npx', 'tsc', '--noEmit'], returncode=2, stdout='verify_types.ts(5,30): error TS2741: Property ...oid; output: { id: number; name: string; }; meta: object; }>; createUser: MutationProcedure<...>; }>>\'.\n', stderr='').returncode
+
+/tests/test_final_state.py:92: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../../../tests/test_final_state.py::test_tsc_no_emit
+PASSED ../../../tests/test_final_state.py::test_client_functions
+FAILED ../../../tests/test_final_state.py::test_exported_types - AssertionErr...
+========================= 1 failed, 2 passed in 6.11s ==========================

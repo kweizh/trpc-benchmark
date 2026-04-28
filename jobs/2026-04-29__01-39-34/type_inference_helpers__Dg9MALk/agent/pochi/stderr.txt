@@ -1,0 +1,16 @@
+[37m2026-04-28 17:50:29.715[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37mnative:1[39m[0m[0m[1m[37m	Pochi[39m[22m[0m[0m	pochi v0.6.8
+[37m2026-04-28 17:50:30.231[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m/$bunfs/root/pochi:519633[39m[0m[0m[1m[37m	loadAgents[39m[22m[0m[0m	Loaded 6 custom agents (6 valid, 0 invalid)
+[37m2026-04-28 17:50:30.236[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m/$bunfs/root/pochi:519634[39m[0m[0m[1m[37m	loadSkills[39m[22m[0m[0m	Loaded 2 skills (2 valid, 0 invalid)
+[37m2026-04-28 17:50:30.300[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m/$bunfs/root/pochi:444677[39m[0m[0m[1m[37m	PochiVendor[39m[22m[0m[0m	JWT is expiring or missing, fetching a new one
+[37m2026-04-28 17:50:34.865[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m/$bunfs/root/pochi:416517[39m[0m[0m[1m[37m	MCPHub[39m[22m[0m[0m	MCP servers configuration changed via signal:
+[37m2026-04-28 17:50:34.866[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m/$bunfs/root/pochi:416629[39m[0m[0m[1m[37m	MCPHub[39m[22m[0m[0m	Build MCPHub Status
+[37m2026-04-28 17:50:35.105[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37mnative:7[39m[0m[0m[1m[37m	Pochi[39m[22m[0m[0m	Starting task runner...
+[37m2026-04-28 17:50:35.191[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m/$bunfs/root/pochi:507614[39m[0m[0m[1m[37m	generateTaskTitle[39m[22m[0m[0m	Generating task title, old: null, new: # Preserving your work
+[37m2026-04-28 17:50:50.853[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m/$bunfs/root/pochi:474589[39m[0m[0m[1m[37m	FileStateCache[39m[22m[0m[0m	withReadFileCache: path="/home/user/project/client.ts" resolvedPath="/home/user/project/client.ts" isVirtual=false cacheExists=true shouldCache=true startLine=1 endLine=400
+[37m2026-04-28 17:50:50.856[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m/$bunfs/root/pochi:474589[39m[0m[0m[1m[37m	FileStateCache[39m[22m[0m[0m	withReadFileCache: existingState=undefined
+[37m2026-04-28 17:50:50.861[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m/$bunfs/root/pochi:518725[39m[0m[0m[1m[37m	FileStateCache[39m[22m[0m[0m	withReadFileCache: populating cache for "/home/user/project/client.ts" mtime=1777308698000 contentLen=350
+[37m2026-04-28 17:50:51.952[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m/$bunfs/root/pochi:507614[39m[0m[0m[1m[37m	generateTaskTitle[39m[22m[0m[0m	Generating task title, old: # Preserving your work, new: Implement tRPC type inference helpers in client.ts
+[37m2026-04-28 17:51:17.270[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37mnative:7[39m[0m[0m[1m[37m	Pochi[39m[22m[0m[0m	Task runner finished successfully.
+[37m2026-04-28 17:51:17.271[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37mnative:7[39m[0m[0m[1m[37m	Pochi[39m[22m[0m[0m	Shutting down...
+[37m2026-04-28 17:51:17.291[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37mnative:7[39m[0m[0m[1m[37m	Pochi[39m[22m[0m[0m	Shutdown completed. Process will exit.
+[37m2026-04-28 17:51:17.292[39m[0m[0m	[32m[1mDEBUG[22m[39m[0m[0m	[37m[39m[0m[0m[1m[37m	Pochi[39m[22m[0m[0m	Process exiting with code 0
