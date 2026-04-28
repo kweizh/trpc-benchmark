@@ -1,0 +1,38 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1777310213.3619192,
+            "stop": 1777310215.4838855
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_trpc_endpoint",
+                "status": "passed",
+                "duration": 2.0575512590585276,
+                "start": 1777310213.3768063,
+                "stop": 1777310215.435056,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_trpc_panel_html",
+                "status": "passed",
+                "duration": 0.047615992138162255,
+                "start": 1777310215.43564,
+                "stop": 1777310215.483558,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}
