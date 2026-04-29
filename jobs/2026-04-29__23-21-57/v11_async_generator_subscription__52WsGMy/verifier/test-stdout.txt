@@ -1,0 +1,56 @@
+downloading uv 0.9.7 x86_64-unknown-linux-gnu
+no checksums to verify
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
+Downloading pygments (1.2MiB)
+ Downloading pygments
+Installed 7 packages in 18ms
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 5 items
+
+tests/test_final_state.py F...F                                          [100%]
+
+=================================== FAILURES ===================================
+_________________________ test_dependencies_installed __________________________
+
+    def test_dependencies_installed():
+        package_json_path = os.path.join(PROJECT_DIR, "package.json")
+        with open(package_json_path) as f:
+            content = f.read()
+        assert "@trpc/server" in content, "@trpc/server is not installed."
+        assert "@trpc/client" in content, "@trpc/client is not installed."
+>       assert "zod" in content, "zod is not installed."
+E       AssertionError: zod is not installed.
+E       assert 'zod' in '{\n  "name": "project",\n  "version": "1.0.0",\n  "description": "",\n  "main": "index.js",\n  "scripts": {\n    "tes... "^4.1.0",\n    "get-tsconfig": "^4.14.0",\n    "resolve-pkg-maps": "^1.0.0",\n    "undici-types": "^7.19.2"\n  }\n}\n'
+
+tests/test_final_state.py:13: AssertionError
+_________________________ test_subscription_output_log _________________________
+
+    def test_subscription_output_log():
+        log_path = os.path.join(PROJECT_DIR, "output.log")
+        assert os.path.isfile(log_path), "output.log does not exist. Did you run the client script and redirect output?"
+        with open(log_path) as f:
+            content = f.read()
+>       assert "3" in content, "Expected 3 in the subscription output."
+E       AssertionError: Expected 3 in the subscription output.
+E       assert '3' in 'Starting countdown subscription...\nError: TRPCClientError\n    at TRPCClientError.from (/home/user/project/node_modu...rpc/server/dist/resolveResponse-Dc2udzYB.cjs:605:27),\n  shape: undefined,\n  data: undefined,\n  meta: undefined\n}\n'
+
+tests/test_final_state.py:34: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_server_and_client_files_exist
+PASSED tests/test_final_state.py::test_client_uses_http_subscription_link
+PASSED tests/test_final_state.py::test_server_uses_async_generator
+FAILED tests/test_final_state.py::test_dependencies_installed - AssertionErro...
+FAILED tests/test_final_state.py::test_subscription_output_log - AssertionErr...
+========================= 2 failed, 3 passed in 0.04s ==========================

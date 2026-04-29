@@ -1,0 +1,59 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 4,
+            "passed": 3,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1777476800.1465497,
+            "stop": 1777477082.003389
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_dependencies_installed",
+                "status": "passed",
+                "duration": 0.0006672530435025692,
+                "start": 1777476800.1602504,
+                "stop": 1777476800.1611807,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_http_batch_stream_link_used",
+                "status": "passed",
+                "duration": 2.5290740160271525,
+                "start": 1777476800.161428,
+                "stop": 1777476802.6907718,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_async_generator_used",
+                "status": "passed",
+                "duration": 1.7874402590095997,
+                "start": 1777476802.6910717,
+                "stop": 1777476804.4787462,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_project_builds",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 277.5056519857608,
+                "start": 1777476804.4790099,
+                "stop": 1777477082.0031307,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_project_builds():\n        result = subprocess.run([\"npm\", \"run\", \"build\"], cwd=PROJECT_DIR, capture_output=True, text=True)\n>       assert result.returncode == 0, f\"Project failed to build. Output:\\n{result.stderr}\\n{result.stdout}\"\nE       AssertionError: Project failed to build. Output:\nE         request to https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2 failed, reason: Client network socket disconnected before secure TLS connection was established\nE         \nE         Retrying 1/3...\nE         request to https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2 failed, reason: read ECONNRESET\nE         \nE         Retrying 2/3...\nE         Failed to compile.\nE         \nE         ./client/trpc.tsx\nE         Error: \nE           \u001b[31mx\u001b[0m You're importing a component that needs useState. It only works in a Client Component but none of its parents are marked with \"use client\", so they're Server Components by default.\nE           \u001b[31m|\u001b[0m Learn more: https://nextjs.org/docs/getting-started/react-essentials\nE           \u001b[31m|\u001b[0m \nE           \u001b[31m|\u001b[0m \nE            ,-[\u001b[36;1;4m/home/user/project/client/trpc.tsx\u001b[0m:1:1]\nE          \u001b[2m1\u001b[0m | import { httpBatchStreamLink } from \"@trpc/client\";\nE          \u001b[2m2\u001b[0m | import { createTRPCReact } from \"@trpc/react-query\";\nE          \u001b[2m3\u001b[0m | import { QueryClient, QueryClientProvider } from \"@tanstack/react-query\";\nE          \u001b[2m4\u001b[0m | import { useState } from \"react\";\nE            : \u001b[31;1m         ^^^^^^^^\u001b[0m\nE          \u001b[2m5\u001b[0m | import type { AppRouter } from \"@/server/trpc/_app\";\nE          \u001b[2m6\u001b[0m | \nE          \u001b[2m7\u001b[0m | export const trpc = createTRPCReact<AppRouter>();\nE            `----\nE         \nE         Import trace for requested module:\nE         ./client/trpc.tsx\nE         ./app/layout.tsx\nE         \nE         \nE         > Build failed because of webpack errors\nE         \nE         \nE         > project@0.1.0 build\nE         > next build\nE         \nE           \u25b2 Next.js 14.2.3\nE         \nE            Creating an optimized production build ...\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['npm', 'run', 'build'], returncode=1, stdout='\\n> project@0.1.0 build\\n> next build\\n\\n  \u25b2 Next...port trace for requested module:\\n./client/trpc.tsx\\n./app/layout.tsx\\n\\n\\n> Build failed because of webpack errors\\n').returncode\n\ntests/test_final_state.py:31: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}
