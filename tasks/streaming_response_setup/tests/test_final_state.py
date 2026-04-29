@@ -46,7 +46,7 @@ def start_app():
 
 def test_streamed_content(start_app):
     reason = "The application should display streamed chunks incrementally in a div with id chat-output."
-    truth = "Navigate to http://localhost:3000. Wait for 1-2 seconds. Verify that the page contains a div with id `chat-output` and its text content is exactly 'Hello World' (the concatenated result of the streamed chunks)."
+    truth = "Navigate to http://localhost:3000. Wait for 1-2 seconds. Verify that the page contains a div with id `chat-output` and its text content is exactly 'Hello streaming world' (the concatenated result of the streamed chunks)."
 
     verifier = PochiVerifier()
     result = verifier.verify(
