@@ -1,0 +1,49 @@
+downloading uv 0.9.7 x86_64-unknown-linux-gnu
+no checksums to verify
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
+Downloading pygments (1.2MiB)
+ Downloading pygments
+Installed 7 packages in 29ms
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 2 items
+
+tests/test_final_state.py .F                                             [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_client_render ______________________________
+
+start_app = None
+
+    def test_client_render(start_app):
+        """Test the client render using browser verification."""
+        verifier = PochiVerifier()
+        result = verifier.verify(
+            reason="The Next.js application should render the result of the tRPC hello query.",
+            truth="Navigate to http://localhost:3000. Verify that the page contains an element with id 'result' and the text 'Hello tRPC v11'.",
+            use_browser_agent=True,
+            trajectory_dir="/logs/verifier/pochi/test_client_render"
+        )
+>       assert result.status == "pass", f"Browser verification failed: {result.reason}"
+E       AssertionError: Browser verification failed: The page at http://localhost:3000 was accessed, but it displayed a Next.js Runtime/Build Error ("The default export is not a React Component in '/page'"). Consequently, the element with id 'result' was not found, and the text 'Hello tRPC v11' could not be verified.
+E       assert 'fail' == 'pass'
+E         
+E         - pass
+E         + fail
+
+tests/test_final_state.py:68: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_api_endpoint
+FAILED tests/test_final_state.py::test_client_render - AssertionError: Browse...
+=================== 1 failed, 1 passed in 196.19s (0:03:16) ====================

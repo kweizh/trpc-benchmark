@@ -1,0 +1,79 @@
+downloading uv 0.9.7 x86_64-unknown-linux-gnu
+no checksums to verify
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
+Downloading pygments (1.2MiB)
+ Downloading pygments
+Installed 7 packages in 15ms
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 3 items
+
+tests/test_final_state.py ..F                                            [100%]
+
+=================================== FAILURES ===================================
+_______________________ test_server_and_client_execution _______________________
+
+    def test_server_and_client_execution():
+        # Start server
+        server_process = subprocess.Popen(
+            ["npm", "run", "start:server"],
+            cwd=PROJECT_DIR,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+    
+        time.sleep(3) # Wait for server to start
+    
+        # Run client
+        client_process = subprocess.run(
+            ["npm", "run", "start:client"],
+            cwd=PROJECT_DIR,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+    
+        server_process.terminate()
+        server_process.wait()
+    
+>       assert client_process.returncode == 0, f"Client failed with error: {client_process.stderr}"
+E       AssertionError: Client failed with error: /home/user/project/node_modules/ts-node/src/index.ts:859
+E             return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+E                    ^
+E         TSError: ⨯ Unable to compile TypeScript:
+E         client.ts(15,39): error TS2339: Property 'query' does not exist on type 'DecoratedProcedureRecord<{ transformer: any; errorShape: any; }, any> | { query: Resolver<{ input: any; output: any; errorShape: any; transformer: any; }>; } | { ...; } | { ...; }'.
+E           Property 'query' does not exist on type '{ mutate: Resolver<{ input: any; output: any; errorShape: any; transformer: any; }>; }'.
+E         
+E             at createTSError (/home/user/project/node_modules/ts-node/src/index.ts:859:12)
+E             at reportTSError (/home/user/project/node_modules/ts-node/src/index.ts:863:19)
+E             at getOutput (/home/user/project/node_modules/ts-node/src/index.ts:1077:36)
+E             at Object.compile (/home/user/project/node_modules/ts-node/src/index.ts:1433:41)
+E             at Module.m._compile (/home/user/project/node_modules/ts-node/src/index.ts:1617:30)
+E             at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+E             at Object.require.extensions.<computed> [as .ts] (/home/user/project/node_modules/ts-node/src/index.ts:1621:12)
+E             at Module.load (node:internal/modules/cjs/loader:1266:32)
+E             at Function.Module._load (node:internal/modules/cjs/loader:1091:12)
+E             at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12) {
+E           diagnosticCodes: [ 2339 ]
+E         }
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['npm', 'run', 'start:client'], returncode=1, stdout='\n> trpc-v10-project@1.0.0 start:client\n>...nction.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12) {\n  diagnosticCodes: [ 2339 ]\n}\n").returncode
+
+tests/test_final_state.py:62: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_package_json_updated
+PASSED tests/test_final_state.py::test_client_ts_updated
+FAILED tests/test_final_state.py::test_server_and_client_execution - Assertio...
+========================= 1 failed, 2 passed in 4.85s ==========================

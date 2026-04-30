@@ -1,0 +1,104 @@
+- Initializing MCP connections...
+You
+# Preserving your work Save a copy of files you create during this task to `/logs/artifacts/`. This directory is preserved after the run so outputs can be inspected. Organize with subdirectories if helpful (e.g., `/logs/artifacts/code/`, `/logs/artifacts/reports/`). The directory already exists and is writable. --- # tRPC v11 Authentication Middleware ## Background You need to implement an authentication middleware using tRPC v11 context. You have a basic tRPC v11 standalone server setup in `/home/user/project`. ## Requirements - Implement a `createContext` function that reads the `authorization` header from the incoming request. - If the `authorization` header is exactly `Bearer mysecrettoken`, set `user: { id: 1, name: 'Admin' }` in the context. Otherwise, `user` should be `null`. - Create a middleware `isAuthed` that checks if `ctx.user` exists. If not, it must throw a `TRPCError` with the code `UNAUTHORIZED`. - Create a `protectedProcedure` using the `isAuthed` middleware. - Define a router `appRouter` with a `secretData` query using `protectedProcedure`. The query should return `{ secret: "super secret" }`. - Start the standalone server on port 3000. ## Implementation Guide 1. Open `/home/user/project/server.ts`. 2. Implement the `createContext` function to parse the `authorization` header from `req.headers`. 3. Create the `isAuthed` middleware using `t.middleware`. 4. Create `protectedProcedure` by chaining `t.procedure.use(isAuthed)`. 5. Add the `secretData` query to `appRouter`. 6. The server is already configured to start on port 3000 using `createHTTPServer`. ## Constraints - Project path: `/home/user/project` - Start command: `npm run start` - Port: 3000 - Must use tRPC v11 `@trpc/server@next`.   
+
+Pochi
+💭 Thinking for 513 characters   
+📂 Listing files in /home/user/project ✔ 
+💭 Thinking for 89 characters   
+📖 Reading /home/user/project/server.ts ✔ 
+📖 Reading /home/user/project/package.json ✔ 
+💭 Thinking for 535 characters   
+✏️  Writing /home/user/project/server.ts ✔ 
+💭 Thinking for 307 characters   
+📖 Reading /home/user/project/server.ts ✔ 
+💭 Thinking for 139 characters   
+✏️  Writing /home/user/project/server.ts ✔ 
+💭 Thinking for 446 characters   
+📖 Reading /home/user/project/server.ts ✔ 
+💭 Thinking for 741 characters   
+📖 Reading /home/user/project/server.ts ✔ 
+💭 Thinking for 1908 characters   
+💫 Executing cat > /home/user/project/server.ts ✔ 
+💭 Thinking for 251 characters   
+💫 Executing cat > /home/user/project/server.ts && cat /home/user/project/server.ts ✔ 
+💭 Thinking for 2529 characters   
+💫 Executing printf '%s\n' 'import { initTRPC, TRPCError } from '"'"'@trpc/server'"'"';' 'import { createHTTPServer } from '"'"'@trpc/server/adapters/standalone'"'"';' '' '// 1. Implement createContext' 'export function createContext({ req, res }: any) {' '  const authHeader = req.headers?.authorization;' '  if (authHeader === '"'"'Bearer mysecrettoken'"'"') {' '    return { user: { id: 1, name: '"'"'Admin'"'"' } };' '  }' '  return { user: null };' '}' '' 'type Context = Awaited;' '' 'const t = initTRPC.context().create();' '' '// 2. Create isAuthed middleware' 'const isAuthed = t.middleware(({ next, ctx }) => {' '  if (!ctx.user) {' '    throw new TRPCError({ code: '"'"'UNAUTHORIZED'"'"' });' '  }' '  return next({' '    ctx: {' '      user: ctx.user,' '    },' '  });' '});' '' '// 3. Create protectedProcedure' 'const protectedProcedure = t.procedure.use(isAuthed);' '' '// 4. Create router' 'export const appRouter = t.router({' '  secretData: protectedProcedure.query(() => {' '    return { secret: '"'"'super secret'"'"' };' '  }),' '});' '' 'export type AppRouter = typeof appRouter;' '' '// Start server' 'createHTTPServer({' '  router: appRouter,' '  createContext,' '}).listen(3000);' '' 'console.log('"'"'Server listening on http://localhost:3000'"'"');' > /home/user/project/server.ts ✔ 
+💭 Thinking for 254 characters   
+📖 Reading /home/user/project/server.ts ✔ 
+💭 Thinking for 578 characters   
+🔧 Applying diff to /home/user/project/server.ts ✔ 
+💭 Thinking for 151 characters   
+📖 Reading /home/user/project/server.ts ✔ 
+💭 Thinking for 1033 characters   
+💫 Executing node -e '
+const fs = require("fs");
+const content = `import { initTRPC, TRPCError } from '"'"'@trpc/server'"'"';
+import { createHTTPServer } from '"'"'@trpc/server/adapters/standalone'"'"';
+
+// 1. Implement createContext
+export function createContext({ req, res }: any) {
+  const authHeader = req.headers?.authorization;
+  if (authHeader === '"'"'Bearer mysecrettoken'"'"') {
+    return { user: { id: 1, name: '"'"'Admin'"'"' } };
+  }
+  return { user: null };
+}
+
+type Context = Awaited
+
+const t = initTRPC.context
+();
+
+// 2. Create isAuthed middleware
+const isAuthed = t.middleware(({ next, ctx }) => {
+  if (!ctx.user) {
+    throw new TRPCError({ code: '"'"'UNAUTHORIZED'"'"' });
+  }
+  return next({
+    ctx: {
+      user: ctx.user,
+    },
+  });
+});
+
+// 3. Create protectedProcedure
+const protectedProcedure = t.procedure.use(isAuthed);
+
+// 4. Create router
+export const appRouter = t.router({
+  secretData: protectedProcedure.query(() => {
+    return { secret: '"'"'super secret'"'"' };
+  }),
+});
+
+export type AppRouter = typeof appRouter;
+
+// Start server
+createHTTPServer({
+  router: appRouter,
+  createContext,
+}).listen(3000);
+
+console.log('"'"'Server listening on http://localhost:3000'"'"');
+`;
+fs.writeFileSync("/home/user/project/server.ts", content);
+' ✔ 
+💭 Thinking for 322 characters   
+📖 Reading /home/user/project/server.ts ✔ 
+💭 Thinking for 158 characters   
+🔧 Applying diff to /home/user/project/server.ts ✔ 
+💭 Thinking for 158 characters   
+📖 Reading /home/user/project/server.ts ✔ 
+💭 Thinking for 465 characters   
+💫 Executing node -e 'const fs = require("fs"); const content = Buffer.from("aW1wb3J0IHsgaW5pdFRSUEMsIFRSUENFcnJvciB9IGZyb20gJ0B0cnBjL3NlcnZlcic7CmltcG9ydCB7IGNyZWF0ZUhUVFBTRXJ2ZXIgfSBmcm9tICdAdHJwYy9zZXJ2ZXIvYWRhcHRlcnMvc3RhbmRhbG9uZSc7CgovLyAxLiBJbXBsZW1lbnQgY3JlYXRlQ29udGV4dApleHBvcnQgZnVuY3Rpb24gY3JlYXRlQ29udGV4dCh7IHJlcSwgcmVzIH06IGFueSkgewogIGNvbnN0IGF1dEhlYWRlciA9IHJlcS5oZWFkZXJzPy5hdXRob3JpemF0aW9uOwogIGlmIChhdXRoSGVhZGVyID09PSAnQmVhcmVyIG15c2VjcmV0dG9rZW4nKSB7CiAgICByZXR1cm4geyB1c2VyOiB7IGlkOiAxLCBuYW1lOiAnQWRtaW4nIH0gfTsKICB9CiAgcmV0dXJuIHsgdXNlcjogbnVsbCB9Owp9Cgp0eXBlIENvbnRleHQgPSBhd2FpdGVkPFJldHVyblR5cGU8dHlwZW9mIGNyZWF0ZUNvbnRleHQ+PjsKCmNvbnN0IHQgPSBpbml0VFJQQy5jb250ZXh0PENvbnRleHQ+KCkuY3JlYXRlKCk7CgovLyAyLiBDcmVhdGUgaXNBdXRoZWQgbWlkZGxld2FyZQpjb25zdCBpc0F1dGhlZCA9IHQubWlkZGxld2FyZSgoeyBuZXh0LCBjdHggfSkgPT4gewogIGlmICghY3R4LnVzZXIpIHsKICAgIHRocm93IG5ldyBUUlBDRXJyb3IoeyBjb2RlOiAnVU5BVVRIT1JJWkVEJyB9KTsKICB9CiAgcmV0dXJuIG5leHQoewogICAgY3R4OiB7CiAgICAgIHVzZXI6IGN0eC51c2VyLAogICAgfSwKICB9KTsKfSk7CgovLyAzLiBDcmVhdGUgcHJvdGVjdGVkUHJvY2VkdXJlCmNvbnN0IHByb3RlY3RlZFByb2NlZHVyZSA9IHQucHJvY2VkdXJlLnVzZShpc0F1dGhlZCk7CgovLyA0LiBDcmVhdGUgcm91dGVyCmV4cG9ydCBjb25zdCBhcHBSb3V0ZXIgPSB0LnJvdXRlcih7CiAgc2VjcmV0RGF0YTogcHJvdGVjdGVkUHJvY2VkdXJlLnF1ZXJ5KCgpID0+IHsKICAgIHJldHVybiB7IHNlY3JldDogJ3N1cGVyIHNlY3JldCcgfTsKICB9KSwKfSk7CgpleHBvcnQgdHlwZSBBcHBSb3V0ZXIgPSB0eXBlb2YgYXBwUm91dGVyOwoKLy8gU3RhcnQgc2VydmVyCmNyZWF0ZUhUVFBTZXJ2ZXIoewogIHJvdXRlcjogYXBwUm91dGVyLAogIGNyZWF0ZUNvbnRleHQsCn0pLmxpc3RlbigzMDAwKTsKCignU2VydmVyIGxpc3RlbmluZyBvbiBodHRwOi8vbG9jYWxob3N0OjMwMDAnKTsK", "base64"); fs.writeFileSync("/home/user/project/server.ts", content);' ✔ 
+💭 Thinking for 223 characters   
+📖 Reading /home/user/project/server.ts ✔ 
+💭 Thinking for 3596 characters   
+✏️  Writing /home/user/project/server.ts ✔ 
+💭 Thinking for 487 characters   
+✏️  Writing /home/user/project/server.ts ✔ 
+💭 Thinking for 1385 characters   
+✏️  Writing /home/user/project/server.ts ✔ 
+💭 Thinking for 725 characters   
+💫 Executing cat > /home/user/project/server.ts ✔ 

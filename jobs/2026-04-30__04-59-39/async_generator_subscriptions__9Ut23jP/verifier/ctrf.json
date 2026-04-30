@@ -1,0 +1,59 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 4,
+            "passed": 3,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1777499530.286459,
+            "stop": 1777499530.3164272
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_files_exist",
+                "status": "passed",
+                "duration": 0.0005300119519233704,
+                "start": 1777499530.298081,
+                "stop": 1777499530.2988114,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_server_uses_async_generator",
+                "status": "passed",
+                "duration": 0.0004349960945546627,
+                "start": 1777499530.2990024,
+                "stop": 1777499530.2995696,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_client_uses_http_subscription_link",
+                "status": "passed",
+                "duration": 0.0004359839949756861,
+                "start": 1777499530.2997353,
+                "stop": 1777499530.3003,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_output_log_contains_countdown",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0005531690549105406,
+                "start": 1777499530.3004632,
+                "stop": 1777499530.3162467,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_output_log_contains_countdown():\n        log_path = os.path.join(PROJECT_DIR, \"output.log\")\n    \n>       assert os.path.isfile(log_path), \"output.log not found. Did you run the client and redirect output to output.log?\"\nE       AssertionError: output.log not found. Did you run the client and redirect output to output.log?\nE       assert False\nE        +  where False = <function isfile at 0x73329c9bc220>('/home/user/project/output.log')\nE        +    where <function isfile at 0x73329c9bc220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:24: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

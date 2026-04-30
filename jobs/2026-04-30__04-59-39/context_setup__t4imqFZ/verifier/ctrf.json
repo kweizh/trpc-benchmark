@@ -1,0 +1,38 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1777496850.6603043,
+            "stop": 1777496856.5448625
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_get_user_with_header",
+                "status": "passed",
+                "duration": 5.820267830276862,
+                "start": 1777496850.6983194,
+                "stop": 1777496856.51928,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_get_user_without_header",
+                "status": "passed",
+                "duration": 0.024685364216566086,
+                "start": 1777496856.519672,
+                "stop": 1777496856.5445724,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

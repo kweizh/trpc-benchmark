@@ -1,0 +1,29 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1777497243.8322499,
+            "stop": 1777497244.6492672
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_register_user_validation",
+                "status": "passed",
+                "duration": 0.8075324490200728,
+                "start": 1777497243.8412118,
+                "stop": 1777497244.6490097,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}
